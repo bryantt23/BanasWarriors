@@ -1,28 +1,17 @@
-﻿namespace BanasWarriors
+﻿using System;
+
+namespace BanasWarriors
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Warrior warrior1 = new Warrior("Steve");
-            Warrior warrior2 = new Warrior("Tony");
+            Warrior maximus = new Warrior("Maximus", 1000, 120, 40);
+            Warrior bob = new Warrior("Bob", 1000, 120, 40);
 
-            warrior1.Enemy = warrior2;
-            warrior2.Enemy = warrior1;
+            Battle.StartFight(maximus, bob);
 
-            while (true)
-            {
-                warrior1.Attack();
-                if (!warrior2.IsAlive)
-                {
-                    break;
-                }
-                warrior2.Attack();
-                if (!warrior1.IsAlive)
-                {
-                    break;
-                }
-            }
+            Console.ReadLine();
         }
     }
 }
