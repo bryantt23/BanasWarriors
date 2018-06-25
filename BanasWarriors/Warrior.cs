@@ -33,14 +33,16 @@ namespace BanasWarriors
 
         public void Attack()
         {
-            System.Console.WriteLine(this.Name + " has " + this.MaxHealth + " HP");
             System.Console.WriteLine(this.Enemy.Name + " has " + this.Enemy.MaxHealth + " HP");
+            System.Console.WriteLine(this.Name + " has " + this.MaxHealth + " HP");
 
             int attackPower = GetRandomNumber(1, this.MaxAttack);
             int blockPower = Block(this.Enemy);
             int enemyBlock = blockPower > MaxAttack ? MaxAttack : blockPower;
             int effectiveAttack = Math.Max(0, attackPower - blockPower);
             this.Enemy.MaxHealth -= effectiveAttack;
+            Console.WriteLine(this.Name + " attack power is " + attackPower + ". " + this.Enemy.Name + " block power is " + enemyBlock + ".");
+            Console.WriteLine(this.Name + " causes " + effectiveAttack + " damage");
             if (this.Enemy.MaxHealth <= 0)
             {
                 Console.WriteLine(this.Name + " has defeated " + this.Enemy.Name);
@@ -48,8 +50,6 @@ namespace BanasWarriors
             }
             else
             {
-                Console.WriteLine(this.Name + " attack power is " + attackPower + ". ");
-                Console.WriteLine(this.Enemy.Name + " block power is " + enemyBlock);
                 Console.WriteLine(this.Enemy.Name + " now has " + this.Enemy.MaxHealth + " HP \n");
             }
         }
