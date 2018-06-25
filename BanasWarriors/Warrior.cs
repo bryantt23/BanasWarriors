@@ -56,8 +56,7 @@ namespace BanasWarriors
 
         public int Block(Warrior warrior)
         {
-            Random rnd = new Random();
-            int blockPower = rnd.Next(1, warrior.MaxBlock);
+            int blockPower = GetRandomNumber(1, warrior.MaxBlock);
             return blockPower;
         }
     }
